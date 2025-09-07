@@ -175,3 +175,13 @@ def get_longest_weekly_streak(db):
     if not streaks:
         return (None, 0)
     return max(streaks, key=lambda x: x[1])
+
+def get_longest_historical_streak(db):
+    """
+    Return (name, streak) for the habit with the longest historical streak.
+    Returns (None, 0) if there are no habits.
+    """
+    all_streaks = get_all_streaks(db)
+    if not all_streaks:
+        return (None, 0)
+    return max(all_streaks, key=lambda x: x[1])
