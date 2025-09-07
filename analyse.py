@@ -117,6 +117,9 @@ def get_streak(db, name: str) -> int:
 def get_all_streaks(db):
     """
     Return a list of (name, streak) for all habits.
+
+    :param db: an initialized sqlite3 database connection
+    :return: a list of (name, streak) for all habits
     """
     cur = db.cursor()
     cur.execute("SELECT name FROM habit_list")
@@ -138,6 +141,9 @@ def get_longest_streak(db):
 def get_all_daily_streaks(db):
     """
     Return a list of (name, streak) for all daily habits.
+
+    :param db: an initialized sqlite3 database connection
+    :return: a list of (name, streak) for all daily habits
     """
     cur = db.cursor()
     cur.execute("SELECT name FROM habit_list WHERE period = 'daily'")
@@ -148,6 +154,9 @@ def get_all_daily_streaks(db):
 def get_all_weekly_streaks(db):
     """
     Return a list of (name, streak) for all weekly habits.
+
+    :param db: an initialized sqlite3 database connection
+    :return: a list of (name, streak) for all weekly habits
     """
     cur = db.cursor()
     cur.execute("SELECT name FROM habit_list WHERE period = 'weekly'")
